@@ -21,18 +21,8 @@ $width-button: 150px;
   }
 }
 
-@mixin style-link-text($col) {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: $col;
-}
-
-@function divide($a, $b) {
-  @return $a / $b;
-}
-
 nav {
-  margin: divide(60, 2) * 1px; //30px
+  margin: 30px;
   background-color: $color-primary;
   
   @include clearfix;
@@ -48,12 +38,14 @@ nav {
     display: inline-block;
     margin-left: 30px;
     
+    a {
+    text-decoration: none;
+   text-transform: uppercase;
+    color: #000;
+    }
+ 
     &:first-child {
       margin: 0;
-    }
-    
-    a:link {
-      @include style-link-text($color-text-dark);
     }
   }
 }
@@ -62,18 +54,20 @@ nav {
   float: right;
 }
 
-%btn-placeholder {
+.btn-main:link, .btn-hot:link{
   padding: 10px;
   display: inline-block;
   text-align: center;
   border-radius: 100px;
   width: $width-button;
-  @include style-link-text($color-text-light);
+  
+   text-decoration: none;
+   text-transform: uppercase;
+  color: #000;
 }
 
 .btn-main {
   &:link {
-    @extend %btn-placeholder;
     background-color: $color-secondary;
   }
   
@@ -84,7 +78,6 @@ nav {
 
 .btn-hot {
   &:link {
-    @extend %btn-placeholder;
     background-color: $color-tertiary;
   }
   
